@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { EmpleadosComponent } from './pages/empleados/empleados.component';
 import { GruposComponent } from './pages/grupos/grupos.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { GruposComponent } from './pages/grupos/grupos.component';
     InicioComponent,
     EmpleadosComponent,
     GruposComponent,
+    NavComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
