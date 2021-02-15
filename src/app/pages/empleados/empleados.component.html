@@ -1,6 +1,8 @@
 <div class="container">
   <h2>Empleados</h2>
 
+  <app-form (update)="retrieveData()" class="m-3"></app-form>
+
   <mat-form-field>
     <mat-label>Busqueda</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input />

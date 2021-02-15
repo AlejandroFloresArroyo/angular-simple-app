@@ -1,6 +1,6 @@
-export interface EmpleadoModel {
-  id: number;
-  name: string;
-  last_name: string;
-  birthday: Date;
+export class EmpleadoModel {
+  public id?: number;
+  public name?: string;
+  public last_name?: string;
+  public birthday?: Date;
 }

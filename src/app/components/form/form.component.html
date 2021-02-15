@@ -1,0 +1,38 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Agregar Empleado </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="guardar()">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Nombre"
+          formControlName="nombre"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Apellido</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Apellido"
+          formControlName="apellido"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Fecha de nacimiento</mat-label>
+        <input matInput formControlName="fecha" [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button type="submit" class="mx-3" mat-raised-button color="primary">
+        Guardar
+      </button>
+    </form>
+  </mat-expansion-panel>
+</mat-accordion>

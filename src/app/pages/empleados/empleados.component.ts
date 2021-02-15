@@ -24,6 +24,10 @@ export class EmpleadosComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.retrieveData();
+  }
+
+  retrieveData() {
     this.empleadoService.getUsuarios().subscribe((res: any) => {
       this.empleados = res.data.employees;
       this.dataSource.data = this.empleados;
