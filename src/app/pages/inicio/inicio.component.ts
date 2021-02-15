@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 
 SwiperCore.use([Navigation]);
@@ -7,15 +7,4 @@ SwiperCore.use([Navigation]);
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
 })
-export class InicioComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  onSwiper(swiper: any) {
-    console.log(swiper);
-  }
-  onSlideChange() {
-    console.log('slide change');
-  }
-}
+export class InicioComponent {}
