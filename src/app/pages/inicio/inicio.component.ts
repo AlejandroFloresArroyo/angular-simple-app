@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import SwiperCore, { Navigation, Pagination } from 'swiper/core';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.css']
+  styleUrls: ['./inicio.component.css'],
 })
 export class InicioComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onSwiper(swiper: any) {
+    console.log(swiper);
   }
-
+  onSlideChange() {
+    console.log('slide change');
+  }
 }

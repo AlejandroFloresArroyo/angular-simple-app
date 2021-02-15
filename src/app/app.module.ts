@@ -7,6 +7,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { EmpleadosComponent } from './pages/empleados/empleados.component';
 import { GruposComponent } from './pages/grupos/grupos.component';
 import { NavComponent } from './components/nav/nav.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { NavComponent } from './components/nav/nav.component';
     GruposComponent,
     NavComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, SwiperModule],
   providers: [],
   bootstrap: [AppComponent],
 })
