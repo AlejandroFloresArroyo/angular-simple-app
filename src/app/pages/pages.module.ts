@@ -4,12 +4,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { EmpleadosComponent } from './empleados/empleados.component';
 import { GruposComponent } from './grupos/grupos.component';
 
-
-
 @NgModule({
   declarations: [InicioComponent, EmpleadosComponent, GruposComponent],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
+  exports: [InicioComponent, EmpleadosComponent, GruposComponent],
 })
-export class PagesModule { }
+export class PagesModule {}
