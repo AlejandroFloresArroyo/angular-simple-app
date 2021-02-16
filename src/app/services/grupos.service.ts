@@ -11,16 +11,10 @@ export class GruposService {
   constructor(private http: HttpClient) {}
 
   getGrupos() {
-    console.log('GetGrupos', `${base_url}/groups/alejandro`);
     return this.http.get(`${base_url}/groups/alejandro`);
   }
 
   getEmpleados(id: number) {
-    console.log(
-      'GetEmpleados',
-      `${base_url}/employees/alejandro/getByGroup?id=${id}`
-    );
-
     return this.http.get(`${base_url}/employees/alejandro/getByGroup?id=${id}`);
   }
 }

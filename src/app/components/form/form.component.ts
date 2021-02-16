@@ -41,8 +41,6 @@ export class FormComponent implements OnInit {
   }
 
   guardar() {
-    console.log(this.form);
-
     if (this.form.valid) {
       const empleado: EmpleadoModel = new EmpleadoModel();
       empleado.name = this.form.value.nombre;

@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'empleados', component: EmpleadosComponent },
   { path: 'grupos', component: GruposComponent },
+  { path: '**', redirectTo: '/inicio' },
 ];
 
 @NgModule({
