@@ -15,13 +15,13 @@
           <div
             cdkDropList
             #todoList="cdkDropList"
-            [cdkDropListData]="todo"
+            [cdkDropListData]="grupos"
             [cdkDropListConnectedTo]="[doneList]"
             class="example-list"
             (cdkDropListDropped)="drop($event)"
           >
-            <div class="example-box" *ngFor="let item of todo" cdkDrag>
-              {{ item }}
+            <div class="example-box" *ngFor="let item of grupos" cdkDrag>
+              {{ item.name }}
             </div>
           </div>
         </div>
@@ -32,28 +32,27 @@
       <div
         cdkDropList
         #doneList="cdkDropList"
-        [cdkDropListData]="done"
-        class="example-list"
+        [cdkDropListData]="seleccionados"
+        class="example-list p-3"
         [cdkDropListConnectedTo]="[todoList]"
         (cdkDropListDropped)="drop($event)"
       >
-        <mat-card *ngFor="let item of done" cdkDrag>
+        <mat-card *ngFor="let item of seleccionados" cdkDrag>
           <mat-card-header class="bg-primary rounded py-3 text-white">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                checked
-                [id]="item"
-              />
-              <label class="form-check-label" for="{{ item }}">
-                {{ item }}
-              </label>
-            </div>
+            <mat-checkbox [color]="'accent'">
+              {{ item.name }}
+            </mat-checkbox>
           </mat-card-header>
-          <mat-card-content [style.overflow]="'auto'" [style.height.px]="'250'">
-            <ul class="list-group">
-              <li class="list-group-item">
+          <mat-card-content
+            [style.overflow]="'auto'"
+            [style.maxHeight.px]="'250'"
+          >
+            <p *ngIf="!item.employees">No hay empleados en este grupo,</p>
+            <ul *ngIf="item.employees" class="list-group">
+              <li
+                *ngFor="let employee of item.employees"
+                class="list-group-item"
+              >
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -62,148 +61,17 @@
                     id="defaultCheck1"
                   />
                   <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
-                  </label>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    checked
-                    id="defaultCheck1"
-                  />
-                  <label class="form-check-label" for="defaultCheck1">
-                    Default checkbox
+                    {{ employee.name }}
                   </label>
                 </div>
               </li>
             </ul>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button class="bg-primary text-white">
-              Continuar
-            </button>
-          </mat-card-actions>
         </mat-card>
+
+        <button mat-raised-button class="bg-primary text-white">
+          Continuar
+        </button>
       </div>
     </div>
   </div>
