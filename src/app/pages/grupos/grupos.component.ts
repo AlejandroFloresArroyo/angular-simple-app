@@ -58,8 +58,6 @@ export class GruposComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<grupo[]>) {
-    console.log(event);
-
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -74,11 +72,13 @@ export class GruposComponent implements OnInit {
         event.currentIndex
       );
     }
-    console.log(this.seleccionados);
   }
 
   checkValue(id: any) {
-    console.log(id);
+    let elements = this.elem.nativeElement.querySelectorAll(`.${id}`);
+    elements.forEach((el: any) => {
+      el.checked = !el.checked;
+    });
   }
 
   printAll() {
