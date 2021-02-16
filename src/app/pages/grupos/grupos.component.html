@@ -39,9 +39,18 @@
       >
         <mat-card *ngFor="let item of seleccionados" cdkDrag>
           <mat-card-header class="bg-primary rounded py-3 text-white">
-            <mat-checkbox [color]="'accent'">
-              {{ item.name }}
-            </mat-checkbox>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                checked
+                (change)="checkValue(item.id)"
+                [id]="item.name"
+              />
+              <label class="form-check-label" [for]="item.name">
+                {{ item.name }}
+              </label>
+            </div>
           </mat-card-header>
           <mat-card-content
             [style.overflow]="'auto'"
@@ -55,12 +64,12 @@
               >
                 <div class="form-check">
                   <input
-                    class="form-check-input"
+                    class="form-check-input employee-cb"
                     type="checkbox"
                     checked
-                    id="defaultCheck1"
+                    [id]="employee.id"
                   />
-                  <label class="form-check-label" for="defaultCheck1">
+                  <label class="form-check-label" [for]="employee.id">
                     {{ employee.name }}
                   </label>
                 </div>
@@ -69,7 +78,11 @@
           </mat-card-content>
         </mat-card>
 
-        <button mat-raised-button class="bg-primary text-white">
+        <button
+          (click)="printAll()"
+          mat-raised-button
+          class="bg-primary text-white"
+        >
           Continuar
         </button>
       </div>
